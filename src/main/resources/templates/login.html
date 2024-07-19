@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Login</title>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="/style.css" rel="stylesheet" id="style-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body class="bg-gradient-primary">
+  
+<div class="sidenav">
+    <div class="login-main-text">
+       <h2>Application<br> Login Page</h2>
+       <p>Login from here to access.</p>
+    </div>
+ </div>
+ <div class="main">
+    <div class="col-md-6 col-sm-12">
+       <div class="login-form">
+        <form th:action="@{/auth/login}" method="post" class="user">
+            <div th:if="${param.error}">
+                <div class="alert alert-danger">Invalid Email and Password.</div>
+            </div>
+            <div th:if="${param.logout}">
+                <div class="alert alert-success">You have been logged out.</div>
+            </div>   
+             <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="username" class="form-control" placeholder="User Name">
+             </div>
+             <div class="form-group">
+                <label>Password</label>
+                <input type="password" name="password" class="form-control" placeholder="Password">
+             </div>
+             <button type="submit" class="btn btn-black">Login</button>
+          </form>
+       </div>
+    </div>
+ </div>
+</body>
+
+</html>
